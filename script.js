@@ -245,3 +245,38 @@ if (window.innerWidth <= 600) {
   layoutContainer.style.display = "none";
 }
 
+
+
+// 🧩 Manual Cache Refresh (Optional)
+if ('serviceWorker' in navigator) {
+  const refreshCache = async () => {
+    const reg = await navigator.serviceWorker.getRegistration();
+    if (reg && reg.active) {
+      reg.active.postMessage('SKIP_WAITING');
+      window.location.reload();
+    }
+  };
+  // Example: refreshCache(); // call when needed
+}
+
+
+// 🧱 Listen for cache progress messages from service worker
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.addEventListener("message", event => {
+    if (event.data && event.data.type === "CACHE_PROGRESS") {
+      const percent = event.data.progress;
+      const progressEl = document.getElementById("cacheProgress");
+
+      if (progressEl) {
+        progressEl.style.display = "block";
+        progressEl.textContent = `Downloading for offline use: ${percent}%`;
+
+        if (percent >= 100) {
+          setTimeout(() => {
+            progressEl.textContent = "✅ Ready to use offline!";
+          }, 500);
+        }
+      }
+    }
+  });
+}
