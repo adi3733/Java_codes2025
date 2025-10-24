@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java Code Vault</title>
+
+    <!-- 🌐 Favicon -->
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <link rel="apple-touch-icon" href="/assets/favicon.png" />
+
+    <!-- ✅ CSS -->
+    <link rel="stylesheet" href="/style-v2.css" />
+
+    <!-- 📱 PWA Support -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#f89820" />
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/service-worker.js").then(reg => {
+                reg.addEventListener("updatefound", () => {
+                    const newWorker = reg.installing;
+                    newWorker.addEventListener("statechange", () => {
+                        if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
+                            showUpdatePopup();
+                        }
+                    });
+                });
+            });
+        }
+
+        function showUpdatePopup() {
+            const popup = document.createElement("div");
+            popup.innerHTML = `
+        <div style="
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: linear-gradient(135deg, #f89820, #ff0077);
+          color: #fff;
+          padding: 12px 20px;
+          border-radius: 10px;
+          font-weight: 500;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+          z-index: 9999;
+          cursor: pointer;
+          transition: transform 0.2s ease;
+        ">
+          ✨ New version available — Click to refresh
+        </div>
+      `;
+            document.body.appendChild(popup);
+            popup.addEventListener("click", () => {
+                navigator.serviceWorker.getRegistration().then(reg => {
+                    if (reg.waiting) {
+                        reg.waiting.postMessage("SKIP_WAITING");
+                        window.location.reload();
+                    }
+                });
+            });
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- 🌟 Splash Screen -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <img src="/assets/HD Logo PNG.png" alt="Techh Buddies Logo" class="splash-logo" />
+            <!-- <h1 class="splash-title">TECHH BUDDIES</h1> -->
+            <h2 class="splash-title">Java Code Vault</h2>
+            <p class="splash-caption">Your Friendly Techh Partner</p>
+        </div>
+    </div>
+
+    <!-- 🌟 Header -->
+    <header>
+        <div class="logo-title">
+            <img src="/assets/java_logo.png" alt="Java Logo" class="logo" />
+            <h1>Java Code Vault</h1>
+        </div>
+        <p>All your Java practicals — beautifully organized.</p>
+    </header>
+
+    <main class="grid" id="practicalList"></main>
+
+    <!-- 💬 Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-card">
+            <div class="popup-header">
+                <h2 id="popupTitle"></h2>
+                <button id="closeBtn" class="close-btn">✖</button>
+            </div>
+
+            <div id="fileTabs" class="file-tabs"></div>
+            <pre id="popupCode"></pre>
+
+            <div class="popup-controls">
+                <button id="fontMinus" class="font-btn">−</button>
+                <button id="fontPlus" class="font-btn">+</button>
+                <button id="copyBtn" class="copy-btn">📋 Copy Code</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ⚠️ Disclaimer -->
+    <section class="disclaimer">
+        <div class="disclaimer-title">
+            <img src="/assets/Caution.png" alt="Caution Icon" class="caution-icon" />
+            <h3>Disclaimer</h3>
+        </div>
+        <p>
+            This website is created solely for <strong>educational purposes</strong>.
+            It is intended to help students understand and practice Java programming concepts.
+            Please do not use this platform, its content, or provided code for any form of
+            <strong>cheating, malpractice, or academic dishonesty</strong> during examinations or assessments.
+        </p>
+    </section>
+
+    <!-- ⚡ Footer -->
+    <footer>
+        <p>
+            Made with ❤️ by
+            <a href="https://www.techhbuddies.com" target="_blank" class="footer-link">
+                TechhBuddies
+            </a>
+            | Java Code Vault © 2025
+            <br />
+            <small>Last updated: <span id="buildVersion"></span></small>
+        </p>
+    </footer>
+
+    <!-- 🧱 Layout Switch (Visible on Mobile Only) -->
+    <div class="layout-toggle" id="layoutToggleContainer">
+        <button id="toggleLayout">🔲 Switch to 3x3 Layout</button>
+        <small class="layout-note">(Mobile Only)</small>
+    </div>
+
+    <!-- ⚙️ Scripts -->
+    <script src="/script.js"></script>
+    <script>
+        // Splash fade-out
+        window.addEventListener("load", () => {
+            const splash = document.getElementById("splash-screen");
+            setTimeout(() => {
+                splash.classList.add("hide");
+                setTimeout(() => splash.remove(), 800);
+            }, 1500);
+        });
+    </script>
+</body>
+
+</html>
