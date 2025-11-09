@@ -1,5 +1,3 @@
-package fjp_pr6; 
-
 import java.util.Scanner;
 
 class AddMatrix {
@@ -10,7 +8,7 @@ class AddMatrix {
         System.out.println("Enter the number of rows");
         row = in.nextInt();
 
-        System.out.println("Enter the number columns");
+        System.out.println("Enter the number of columns");
         col = in.nextInt();
 
         int mat1[][] = new int[row][col];
@@ -19,31 +17,27 @@ class AddMatrix {
 
         System.out.println("Enter the elements of matrix1");
         for (i = 0; i < row; i++) {
-            for (j = 0; j < col; j++) {
+            for (j = 0; j < col; j++)
                 mat1[i][j] = in.nextInt();
-            }
+            System.out.println();
         }
 
         System.out.println("Enter the elements of matrix2");
         for (i = 0; i < row; i++) {
-            for (j = 0; j < col; j++) {
+            for (j = 0; j < col; j++)
                 mat2[i][j] = in.nextInt();
-            }
+            System.out.println();
         }
 
-        for (i = 0; i < row; i++) {
-            for (j = 0; j < col; j++) {
+        for (i = 0; i < row; i++)
+            for (j = 0; j < col; j++)
                 res[i][j] = mat1[i][j] + mat2[i][j];
-            }
-        }
 
         System.out.println("Sum of matrices:-");
         for (i = 0; i < row; i++) {
-            for (j = 0; j < col; j++) {
+            for (j = 0; j < col; j++)
                 System.out.print(res[i][j] + "\t");
-            }
             System.out.println();
         }
-        in.close();
     }
-} 
+}

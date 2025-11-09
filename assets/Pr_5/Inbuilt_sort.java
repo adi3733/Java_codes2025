@@ -1,8 +1,8 @@
+// Java Program to Sort Names in an Alphabetical Order by using inbuilt sort function
+import java.io.*;
+import java.util.*;
 
-
-import java.util.Arrays;
-
-public class Inbuilt_sort {
+class GFG {
     public static void main(String[] args) {
         // storing input in variable
         int n = 4;

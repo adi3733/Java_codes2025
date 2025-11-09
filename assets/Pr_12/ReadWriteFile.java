@@ -9,24 +9,23 @@ import java.io.IOException;
  * Example of reading data from one text file
  * and writing the data to another file
  */
-
 public class ReadWriteFile {
     public static void main(String[] args) {
 
-        // create input and output stream objects
+        // Create input and output stream objects
         FileInputStream inStream = null;
         FileOutputStream outStream = null;
 
         try {
-            // Files objects (updated file paths)
-            File inputFile = new File("D:\\Collage\\3.TE\\TE SEM 1\\Z.Exp\\Exp.FJP\\FJP_pr12\\input.txt");
-            File outFile = new File("D:\\Collage\\3.TE\\TE SEM 1\\Z.Exp\\Exp.FJP\\FJP_pr12\\output.txt");
+            // File objects (updated file paths)
+            File inputFile = new File("input.txt");  // Yours File Path
+            File outFile = new File("output.txt");   // Yours File Path
 
             // Initialize input and output streams
             inStream = new FileInputStream(inputFile);
             outStream = new FileOutputStream(outFile);
 
-            // The buffer size for reading data
+            // Buffer for reading data
             byte[] buffer = new byte[1024];
             int length;
 
@@ -35,15 +34,14 @@ public class ReadWriteFile {
                 outStream.write(buffer, 0, length);
             }
 
-            // Closing the input/output file streams
+            // Closing the input/output streams
             inStream.close();
             outStream.close();
 
-            System.out.println("Written Content to another file.");
+            System.out.println("Written content to another file successfully.");
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 }
-

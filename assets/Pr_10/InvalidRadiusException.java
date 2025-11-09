@@ -1,5 +1,3 @@
-package fjp_pr10_adi;
-
 class InvalidRadiusException extends Exception {
     private double r;
 
@@ -8,7 +6,6 @@ class InvalidRadiusException extends Exception {
     }
 
     public void printError() {
-        System.out.println("Radius [" + r + "} is not valid");
+        System.out.println("Radius [" + r + "] is not valid");
     }
 }
-

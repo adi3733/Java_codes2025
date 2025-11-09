@@ -1,5 +1,3 @@
-package fjp_pr9_adi;
-
 public class WithdrawThread implements Runnable {
     private Account account;
     private double amount;
@@ -13,4 +11,3 @@ public class WithdrawThread implements Runnable {
         account.withdraw(amount);
     }
 }
-

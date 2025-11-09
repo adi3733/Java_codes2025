@@ -1,5 +1,5 @@
-
-public class brute_force_approch {
+// Java Program to Sort Names in an Alphabetical Order
+class sorting {
     public static void main(String[] args) {
         // storing input in variable
         int n = 4;
@@ -8,7 +8,6 @@ public class brute_force_approch {
         String names[] = { "Rahul", "Ajay", "Gourav", "Riya" };
         String temp;
 
-        // sorting using nested loops
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
                 // to compare one string with other strings
@@ -28,3 +27,4 @@ public class brute_force_approch {
         }
     }
 }
+

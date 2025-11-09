@@ -1,23 +1,17 @@
-package fjp_pr1;
-
 import java.util.Scanner;
 
-public class facto_user {
-
+public class FactorialInput {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Enter the number to calculate its factorial:");
-        int no = sc.nextInt();
-
-        long fact = 1;
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the No to calculate its factorial");
+        double no;
+        no = in.nextDouble();
+        double fact = 1;
 
         for (int i = 1; i <= no; ++i) {
             fact *= i;
         }
 
         System.out.println("Factorial = " + fact);
-        
-        sc.close();
     }
 }

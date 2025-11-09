@@ -1,5 +1,3 @@
-package fjp_pr9_adi;
-
 public class DepositeThread extends Thread {
     private Account account;
     private double amount;
@@ -13,4 +11,3 @@ public class DepositeThread extends Thread {
         account.deposit(amount);
     }
 }
-

@@ -1,5 +1,3 @@
-package fjp_pr10_adi;
-
 public class Circle {
     int x, y, r;
 

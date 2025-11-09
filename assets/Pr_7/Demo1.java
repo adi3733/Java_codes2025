@@ -1,91 +1,68 @@
-
-public class Demo1 {
-    public static void main(String[] args) {
-        CricketPlayer c = new CricketPlayer("Sachin", 20, "Batsman");
-        FootballPlayer f = new FootballPlayer("Namrata", 21, "Forward");
-        HockeyPlayer h = new HockeyPlayer("Mandeep", 22, "Defender");
-
-        // direct calls
-        c.show();
-        System.out.println();
-        f.show();
-        System.out.println();
-        h.show();
-
-        // demonstration of polymorphism (upcasting)
-        System.out.println("\nPolymorphism example:");
-        Player p = new CricketPlayer("Rahul", 27, "All-rounder");
-        p.show();  // dynamic dispatch -> CricketPlayer.show()
-    }
-}
-
-/* Base class for common player fields */
 class Player {
-    private String name;
-    private int age;
+    String name;
+    int age;
 
-    public Player(String name, int age) {
-        this.name = name;
-        this.age = age;
+    Player(String n, int a) {
+        name = n;
+        age = a;
     }
 
-    public String getName() { return name; }
-    public int getAge() { return age; }
-
-    // method intended to be overridden
-    public void show() {
+    void show() {
         System.out.println("Player name: " + name);
         System.out.println("Age: " + age);
     }
 }
 
-/* Cricket player subclass */
-class CricketPlayer extends Player {
-    private String role;
+class cricket_player extends Player {
+    String type;
 
-    public CricketPlayer(String name, int age, String role) {
-        super(name, age);
-        this.role = role;
+    cricket_player(String n, String t, int a) {
+        super(n, a);
+        type = t;
     }
 
-    @Override
     public void show() {
         super.show();
-        System.out.println("Player type : Cricket");
-        System.out.println("Role        : " + role);
+        System.out.println("Player type: " + type);
     }
 }
 
-/* Football player subclass */
-class FootballPlayer extends Player {
-    private String position;
+class football_player extends Player {
+    String type;
 
-    public FootballPlayer(String name, int age, String position) {
-        super(name, age);
-        this.position = position;
+    football_player(String n, String t, int a) {
+        super(n, a);
+        type = t;
     }
 
-    @Override
     public void show() {
         super.show();
-        System.out.println("Player type : Football");
-        System.out.println("Position    : " + position);
+        System.out.println("Player type: " + type);
     }
 }
 
-/* Hockey player subclass */
-class HockeyPlayer extends Player {
-    private String position;
+class hockey_player extends Player {
+    String type;
 
-    public HockeyPlayer(String name, int age, String position) {
-        super(name, age);
-        this.position = position;
+    hockey_player(String n, String t, int a) {
+        super(n, a);
+        type = t;
     }
 
-    @Override
     public void show() {
         super.show();
-        System.out.println("Player type : Hockey");
-        System.out.println("Position    : " + position);
+        System.out.println("Player type: " + type);
+    }
+}
+
+public class Demo {
+    public static void main(String args[]) {
+        cricket_player c = new cricket_player("Sachin", "Cricket", 20);
+        football_player f = new football_player("Namrata", "Football", 21);
+        hockey_player h = new hockey_player("Mandeep", "Hockey", 22);
+
+        c.show();
+        f.show();
+        h.show();
     }
 }
