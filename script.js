@@ -35,7 +35,8 @@ const practicals = [
     name: "Practical 4",
     desc: "Method & Constructor Overloading",
     files: [
-      { name: "rect.java", path: "/assets/Pr_4/rect.java" }
+      // { name: "rect.java", path: "/assets/Pr_4/rect.java" },
+      { name: "Rectangle.java" , path: "/assets/Pr_4/Rectangle.java"}
     ]
   },
   {
