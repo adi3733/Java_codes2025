@@ -69,21 +69,22 @@ const practicals = [
     name: "Practical 8",
     desc: "Implementation of Interface",
     files: [
-      { name: "Sports.java", path: "/assets/Pr_8/Sports.java" },
-      { name: "InterfaceDemo.java", path: "/assets/Pr_8/InterfaceDemo.java" }
+      { name: "Sports.java", path: "/assets/Pr_8/Program For Class.java" },
+      { name: "InterfaceDemo.java", path: "/assets/Pr_8/Program For Interface.java" }
     ]
   },
-  {
-    id: 9,
-    name: "Practical 9",
-    desc: "Multithreading Example",
-    files: [
-      { name: "Account.java", path: "/assets/Pr_9/Account.java" },
-      { name: "DepositeThread.java", path: "/assets/Pr_9/DepositeThread.java" },
-      { name: "Lab10.java", path: "/assets/Pr_9/Lab10.java" },
-      { name: "WithdrawThread.java", path: "/assets/Pr_9/WithdrawThread.java" }
-    ]
-  },
+{
+  "id": 9,
+  "name": "Practical 9",
+  "desc": "Multithreading Example",
+  "files": [
+    { "name": "Account.java", "path": "/assets/Pr_9/Program For Account Thread.java" },
+    { "name": "DepositeThread.java", "path": "/assets/Pr_9/Program for Deposit Thread.java" },
+    { "name": "Lab9.java", "path": "/assets/Pr_9/Program For Main Thread.java" },
+    { "name": "WithdrawThread.java", "path": "/assets/Pr_9/Program for Withdraw Thread.java" }
+  ]
+},
+
   {
     id: 10,
     name: "Practical 10",
@@ -91,7 +92,7 @@ const practicals = [
     files: [
       { name: "Circle.java", path: "/assets/Pr_10/Circle.java" },
       { name: "InvalidRadiusException.java", path: "/assets/Pr_10/InvalidRadiusException.java" },
-      { name: "Lab11.java", path: "/assets/Pr_10/Lab11.java" }
+      { name: "Lab10.java", path: "/assets/Pr_10/Program for lab10(main thread_Source).java" }
     ]
   },
   {
